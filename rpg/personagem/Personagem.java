@@ -1,4 +1,4 @@
-package rpg.personagem;
+package personagem;
 
 public interface Personagem {
 	public void atacar();

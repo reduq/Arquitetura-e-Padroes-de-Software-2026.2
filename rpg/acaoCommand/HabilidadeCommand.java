@@ -1,6 +1,6 @@
-package rpg.acaoCommand;
+package acaoCommand;
 
-import rpg.personagem.Personagem;
+import personagem.Personagem;
 
 public class HabilidadeCommand implements Command{
 	private Personagem personagem;

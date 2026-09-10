@@ -1,5 +1,5 @@
-package rpg.acaoCommand;
-import rpg.personagem.Personagem;
+package acaoCommand;
+import personagem.Personagem;
 
 public class DefesaCommand implements Command{
 	private Personagem personagem;

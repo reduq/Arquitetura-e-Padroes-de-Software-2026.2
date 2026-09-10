@@ -1,5 +1,5 @@
-package rpg.factory;
-import rpg.personagem.Personagem;
+package factory;
+import personagem.Personagem;
 
 public interface FabricaPersonagem {
 	public Personagem criaPersonagem();

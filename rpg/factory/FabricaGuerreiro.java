@@ -1,6 +1,6 @@
-package rpg.factory;
-import rpg.personagem.Personagem;
-import rpg.personagem.Guerreiro;
+package factory;
+import personagem.Guerreiro;
+import personagem.Personagem;
 
 public class FabricaGuerreiro implements FabricaPersonagem {
 	@Override

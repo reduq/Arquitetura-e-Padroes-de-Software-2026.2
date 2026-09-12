@@ -32,6 +32,7 @@ public class Cliente {
         relatorio.gerarRelatorio(1, 2);
         relatorio.finalizar();
         relatorio.publicar();
+        System.out.println(relatorio.visualizar());
 
         System.out.println("\n");
 

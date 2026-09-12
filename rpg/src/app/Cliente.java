@@ -13,8 +13,8 @@ public class Cliente {
 			
 			
 			//declara a variável de referência guerreiro como um Personagem (interface).
-			//através da referência armazenada em "fabrica" chama o método criaPersonagem(), implementado por 'FabricaGuerreiro'
-			//o método instancia um objeto 'Guerreiro' e retorna sua referência, que é armazenada na variável guerreiro.
+			//através da referência armazenada em "fabrica" chama o metodo criaPersonagem(), implementado por 'FabricaGuerreiro'
+			//o metodo instancia um objeto 'Guerreiro' e retorna sua referencia, que e armazenada na variável guerreiro.
 			Personagem guerreiro = fabrica.criaPersonagem();
 			//Instancia um invoker passando nosso Personagem Guerreiro como parâmetro
 			Invoker iGuerreiro = new Invoker(guerreiro);
@@ -35,7 +35,7 @@ public class Cliente {
 
 			System.out.println("\n=====TURNO=====");
 			//através do Invoker.invoke() passamos as chaves dos comandos que estão relacionados aos concreteCommand no
-			//mapa hash da classe Invoker como parâmetro. Para que então seja instanciado esse Command dentro do método,
+			//mapa hash da classe Invoker como parâmetro. Para que então seja instanciado esse Command dentro do metodo,
 			//e esse seja chamado através do nosso Personagem passado no construtor do invoker
 			iGuerreiro.invoke("D");
 			iArqueiro.invoke("A");

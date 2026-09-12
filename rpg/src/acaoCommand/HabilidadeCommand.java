@@ -3,7 +3,7 @@ package acaoCommand;
 import personagem.Personagem;
 
 public class HabilidadeCommand implements Command{
-	private Personagem personagem;
+	private final Personagem personagem;
 	
 	public HabilidadeCommand (Personagem personagem) {
 		this.personagem = personagem;

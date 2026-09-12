@@ -8,7 +8,7 @@ import personagem.Personagem;
 public class Invoker {
 
     // Relação dos comandos
-    private static Map<String, Command> comandos = new HashMap<>();
+    private final static Map<String, Command> comandos = new HashMap<>();
     
 	public Invoker (Personagem personagem) {
 		comandos.put("A", new AtaqueCommand(personagem));

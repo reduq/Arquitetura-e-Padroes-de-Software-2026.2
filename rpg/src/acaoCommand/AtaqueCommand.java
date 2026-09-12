@@ -2,7 +2,7 @@ package acaoCommand;
 import personagem.Personagem;
 
 public class AtaqueCommand implements Command{
-	private Personagem personagem;
+	private final Personagem personagem;
 	public AtaqueCommand(Personagem personagem) {
 		this.personagem = personagem;
 	}

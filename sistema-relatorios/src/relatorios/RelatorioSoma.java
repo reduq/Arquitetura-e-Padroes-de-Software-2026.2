@@ -7,6 +7,6 @@ public class RelatorioSoma extends RelatorioTemplate {
     }
     @Override
     protected String gera(int resultado) {
-        return "\n[RELATORIO DA SOMA]\nRESULTADO: "+resultado;
+        return "[RELATORIO DA SOMA]\nRESULTADO: "+resultado;
     }
 }

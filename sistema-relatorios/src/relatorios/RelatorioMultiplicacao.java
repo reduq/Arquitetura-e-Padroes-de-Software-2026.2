@@ -7,6 +7,6 @@ public class RelatorioMultiplicacao extends RelatorioTemplate {
     }
     @Override
     protected String gera(int resultado) {
-        return "\n[RELATORIO DA MULTIPLICACAO]\nRESULTADO: "+resultado;
+        return "[RELATORIO DA MULTIPLICACAO]\nRESULTADO: "+resultado;
     }
 }

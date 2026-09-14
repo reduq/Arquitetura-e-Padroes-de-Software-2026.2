@@ -16,7 +16,19 @@ public class Cliente {
         System.out.println(relatorio.getEstado());
         relatorio.gerarRelatorio(5, 7);
         System.out.println(relatorio.visualizar());
+        relatorio.reabrir();
         relatorio.publicar();
+        relatorio.finalizar();
+
+        System.out.println("\n");
+
+        System.out.println(relatorio.getEstado());
+        relatorio.reabrir();
+
+        System.out.println("\n");
+
+        System.out.println(relatorio.getEstado());
+        relatorio.gerarRelatorio(10, 15);
         relatorio.finalizar();
 
         System.out.println("\n");
@@ -31,14 +43,19 @@ public class Cliente {
         System.out.println(relatorio.getEstado());
         relatorio.gerarRelatorio(1, 2);
         relatorio.finalizar();
+        relatorio.reabrir();
         relatorio.publicar();
         System.out.println(relatorio.visualizar());
 
         System.out.println("\n");
+        System.out.println("*Demonstração com outro tipo de relatório:*");
 
         RelatorioTemplate relatorio2 = new RelatorioMultiplicacao();
         System.out.println(relatorio2.getEstado());
         relatorio2.gerarRelatorio(3, 4);
         System.out.println(relatorio2.visualizar());
+        relatorio2.reabrir();
+        relatorio2.finalizar();
+        relatorio2.publicar();
     }
 }

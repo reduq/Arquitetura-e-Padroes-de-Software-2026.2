@@ -1,0 +1,151 @@
+public class Cliente {
+    public static void main (String[] args){
+        System.out.println("\n");
+
+        //declara a variável de referência 'relatorio' como um RelatorioTemplate (classe abstrata).
+        //instancia o objeto 'RelatorioSoma' e armazena sua referência em 'relatorio'.
+        //RelatorioSoma implementa os métodos calcula() e gera(), definidos como abstratos
+        //em RelatorioTemplate, enquanto o fluxo de geração do relatório é definido pelo template.
+        RelatorioTemplate relatorio = new RelatorioSoma();
+
+        //através da referência 'relatorio' chama o método getEstado(), que consulta o objeto
+        //de estado atualmente associado ao relatório.
+        System.out.println(relatorio.getEstado());
+
+        //chama o método gerarRelatorio(), que define o fluxo de geração do relatório.
+        //primeiro verifica se o estado atual permite a geração através de verificarGeracao().
+        //como o relatório está inicialmente em EmElaboracao, a operação é permitida.
+        //em seguida, calcula() realiza a soma dos valores e gera() transforma o resultado em uma String.
+        relatorio.gerarRelatorio(3, 4);
+
+        //exibe o resultado armazenado pela geração do relatório.
+        System.out.println(relatorio.visualizar());
+
+        System.out.println("\n");
+
+        //verifica novamente o estado atual do relatório.
+        System.out.println(relatorio.getEstado());
+
+        //gera um novo relatório utilizando os valores 5 e 7.
+        //como o relatório ainda está no estado EmElaboracao, a geração é permitida.
+        relatorio.gerarRelatorio(5, 7);
+
+        //exibe o resultado da nova geração.
+        System.out.println(relatorio.visualizar());
+
+        //solicita a finalização do relatório.
+        //a chamada é delegada ao objeto de estado atual, que neste momento é EmElaboracao.
+        //EmElaboracao permite a finalização e altera o estado do relatório para Finalizado.
+        relatorio.reabrir();
+
+        //tenta publicar o relatório enquanto ele está no estado EmElaboracao.
+        //esse estado não permite publicação, portanto a operação falha.
+        relatorio.publicar();
+
+        //tenta finalizar o relatório novamente.
+        //como o estado continua sendo EmElaboracao, a finalização é permitida
+        //e o relatório passa para o estado Finalizado.
+        relatorio.finalizar();
+
+        System.out.println("\n");
+
+        //consulta o estado atual do relatório após as operações anteriores.
+        //o relatório deve estar no estado Finalizado.
+        System.out.println(relatorio.getEstado());
+
+        //tenta reabrir o relatório.
+        //como o estado atual é Finalizado, a operação é permitida e o estado
+        //volta para EmElaboracao.
+        relatorio.reabrir();
+
+        System.out.println("\n");
+
+        //consulta o estado atual do relatório.
+        //após a reabertura, o relatório está novamente EmElaboracao.
+        System.out.println(relatorio.getEstado());
+
+        //gera um novo relatório utilizando os valores 10 e 15.
+        //como o relatório está EmElaboracao, a geração é permitida.
+        relatorio.gerarRelatorio(10, 15);
+
+        //finaliza o relatório, fazendo com que seu estado passe de EmElaboracao para Finalizado.
+        relatorio.finalizar();
+
+        System.out.println("\n");
+
+        //consulta o estado atual do relatório.
+        //neste momento, o relatório está Finalizado.
+        System.out.println(relatorio.getEstado());
+
+        //tenta gerar um novo relatório enquanto o estado é Finalizado.
+        //Finalizado não permite novas gerações, portanto a operação falha.
+        relatorio.gerarRelatorio(1, 2);
+
+        //tenta finalizar novamente um relatório que já está finalizado.
+        //a operação não é realizada porque o estado atual já é Finalizado.
+        relatorio.finalizar();
+
+        //publica o relatório.
+        //como o estado atual é Finalizado, a publicação é permitida e o estado
+        //do relatório passa para Publicado.
+        relatorio.publicar();
+
+        System.out.println("\n");
+
+        //consulta o estado atual do relatório.
+        //neste momento, o relatório está Publicado.
+        System.out.println(relatorio.getEstado());
+
+        //tenta gerar um novo relatório enquanto o relatório já está publicado.
+        //o estado Publicado não permite novas gerações, portanto a operação falha.
+        relatorio.gerarRelatorio(1, 2);
+
+        //tenta finalizar um relatório que já foi publicado.
+        //o estado Publicado não permite essa operação.
+        relatorio.finalizar();
+
+        //tenta reabrir um relatório que já foi publicado.
+        //o estado Publicado não permite que o relatório volte para edição.
+        relatorio.reabrir();
+
+        //tenta publicar novamente um relatório que já está publicado.
+        //a operação falha porque o relatório já se encontra nesse estado.
+        relatorio.publicar();
+
+        //exibe o último resultado gerado pelo relatório.
+        System.out.println(relatorio.visualizar());
+
+        System.out.println("\n");
+        System.out.println("*Demonstração com outro tipo de relatório:*");
+
+        //declara uma variável de referência do tipo RelatorioTemplate e instancia
+        //um RelatorioMultiplicacao.
+        //isso demonstra que o cliente pode trabalhar com diferentes implementações
+        //através da mesma referência da classe abstrata.
+        RelatorioTemplate relatorio2 = new RelatorioMultiplicacao();
+
+        //consulta o estado inicial do segundo relatório.
+        //todo RelatorioTemplate é iniciado no estado EmElaboracao.
+        System.out.println(relatorio2.getEstado());
+
+        //gera um relatório de multiplicação utilizando os valores 3 e 4.
+        //o método calcula() de RelatorioMultiplicacao realiza a multiplicação,
+        //enquanto o método gera() formata o resultado.
+        relatorio2.gerarRelatorio(3, 4);
+
+        //exibe o resultado do relatório de multiplicação.
+        System.out.println(relatorio2.visualizar());
+
+        //tenta reabrir o relatório enquanto ele ainda está EmElaboracao.
+        //o estado EmElaboracao não permite essa operação, portanto ela falha.
+        relatorio2.reabrir();
+
+        //finaliza o relatório, alterando seu estado de EmElaboracao para Finalizado.
+        relatorio2.finalizar();
+
+        //publica o relatório.
+        //como agora o estado é Finalizado, a publicação é permitida e o estado
+        //passa para Publicado.
+        relatorio2.publicar();
+    }
+}

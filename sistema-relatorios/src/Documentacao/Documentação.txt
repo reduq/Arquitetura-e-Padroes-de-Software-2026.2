@@ -33,18 +33,18 @@ public class Cliente {
         //exibe o resultado da nova geração.
         System.out.println(relatorio.visualizar());
 
-        //solicita a finalização do relatório.
+        //tenta reabrir o relatório enquanto ele ainda está no estado EmElaboracao.
         //a chamada é delegada ao objeto de estado atual, que neste momento é EmElaboracao.
-        //EmElaboracao permite a finalização e altera o estado do relatório para Finalizado.
+        //como o relatório já está aberto para edição, a operação não é permitida e falha.
         relatorio.reabrir();
 
         //tenta publicar o relatório enquanto ele está no estado EmElaboracao.
         //esse estado não permite publicação, portanto a operação falha.
         relatorio.publicar();
 
-        //tenta finalizar o relatório novamente.
-        //como o estado continua sendo EmElaboracao, a finalização é permitida
-        //e o relatório passa para o estado Finalizado.
+        //solicita a finalização do relatório.
+        //como as tentativas anteriores falharam, o estado continua sendo EmElaboracao;
+        //esse estado permite a finalização e o relatório passa para o estado Finalizado.
         relatorio.finalizar();
 
         System.out.println("\n");
